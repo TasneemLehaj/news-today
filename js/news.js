@@ -1,18 +1,19 @@
 const loadNewsCatagories = () => {
     const url = ` https://openapi.programming-hero.com/api/news/categories`;
     fetch(url)
-        .then(res => res.json)
-        .then(data => displayCatagories(data.data))
+        .then(res => res.json())
+        .then(data => displayCatagories(data.data.news_category))
 
 }
 
-const displayCatagories = (news) => {
+const displayCatagories = (newsCategories) => {
     const catagoryContainer = document.getElementById('catagory-container');
-    news.forEach(news => {
-        console.log(news);
+    newsCategories.forEach(news => {
+        // console.log(news);
         const catagoryDiv = document.createElement('div');
+        catagoryDiv.classList.add('col');
         catagoryDiv.innerHTML = `
-        <h1>Catagory name: ${news.news_category}</h1>
+        <h1 class="fs-6" > ${news.category_name}</h1>
         `;
         catagoryContainer.appendChild(catagoryDiv);
 
