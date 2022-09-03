@@ -1,4 +1,4 @@
-// call category api
+//fetching the category api
 const loadCategory = async () => {
     const url = `https://openapi.programming-hero.com/api/news/categories`
     try {
@@ -25,9 +25,9 @@ const categoryDisplay = async () => {
         categorySection.appendChild(createCategory);
     })
 }
-// load data after click category button
+// load data after clicking the category button
 
-// call news api 
+// calling news api with category id
 const loadNews = async (category_id) => {
     // Spinner added and start 
     toggleSpinner(true);
@@ -103,7 +103,7 @@ const displayNews = async (newsesData) => {
 
     })
 
-    toggleSpinner(false)
+    toggleSpinner(false);
 
 }
 
@@ -124,24 +124,25 @@ const newsDetailsLoad = async (id) => {
     displayNewsDetails(newsData.data)
 }
 
-// dispaly news details useing a modal
-// const displayNewsDetails = (newsData) => {
-//     const modalContainer = document.getElementById('news-detais-modal');
-//     modalContainer.innerHTML = ""
-//     const modalDiv = document.createElement('div');
-//     modalDiv.innerHTML = `
-//     <div class="modal-header bg-success text-white text-justify">
-//         <p class="modal-title" id="exampleModalLabel">${newsData[0].title}</p>
-//         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-//     </div>
-//     <div class="modal-body">
-//         <span>${newsData[0].details}</span>
-//     </div>
-//     <div class="modal-footer">
-//         <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Close</button>
-//     </div>
-//     `
-//     modalContainer.appendChild(modalDiv)
-// }
+// using a modal to display news details
+const displayNewsDetails = (newsData) => {
+    const modalContainer = document.getElementById('modal');
+    modalContainer.innerHTML = ""
+    const modalDiv = document.createElement('div');
+    modalDiv.innerHTML = `
+    <div class="modal-header bg-success text-white text-justify">
+        <p class="modal-title" id="exampleModalLabel">${newsData[0].title}</p>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <span>${newsData[0].details}</span>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Related News</button>
+    </div>
+    `
+    modalContainer.appendChild(modalDiv)
+}
 
 categoryDisplay()
