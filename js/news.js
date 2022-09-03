@@ -2,12 +2,12 @@
 const loadCategory = async () => {
     const url = `https://openapi.programming-hero.com/api/news/categories`
     try {
-        const response = await fetch(url)
+        const response = await fetch(url);
         const data = await response.json();
         return data.data.news_category;
     }
     catch (error) {
-        console.log(error)
+        console.log(error);
     }
 
 }
@@ -16,11 +16,9 @@ const categoryDisplay = async () => {
     const data = await loadCategory();
     data.forEach(category => {
         let categorySection = document.getElementById('category-area');
-        const createCategory = document.createElement('div')
+        const createCategory = document.createElement('div');
         createCategory.innerHTML = `
-    
             <button onClick="loadNews(${category.category_id})" class="btn btn-outline-success" type="button">${category.category_name}</button>
-    
         `
         categorySection.appendChild(createCategory);
     })
@@ -142,7 +140,7 @@ const displayNewsDetails = (newsData) => {
         <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Related News</button>
     </div>
     `
-    modalContainer.appendChild(modalDiv)
+    modalContainer.appendChild(modalDiv);
 }
 
 categoryDisplay();
