@@ -40,7 +40,7 @@ const loadNews = async (category_id) => {
     newsFound.innerHTML = ''
     const newsFoundText = document.createElement('div');
     if (newsesData.length > 0) {
-        newsFoundText.innerHTML = `<h5 id="news-found" class="text-center border border-dark p-1 mb-2">News Found: ${newsesData.length}</h5>`;
+        newsFoundText.innerHTML = `<h5 id="news-found" class="text-center border border-success text-success p-1 mb-2">News Found: ${newsesData.length}</h5>`;
         newsFound.appendChild(newsFoundText);
     } else {
         newsFoundText.innerHTML = `<h5 id="news-found" class="text-center border border-dark p-1">Sorry No News Found</h5>`;
@@ -71,19 +71,19 @@ const displayNews = async (newsesData) => {
 
         const createSingleNews = document.createElement('div');
         createSingleNews.innerHTML = `
-        <div class="card mb-3">
+        <div class="card mb-3 border border-success">
             <div class="row g-0 align-items-center">
                 <div class="col-md-4">
                     <img src="${image_url}" class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title text-center text-md-start">${title}</h5>
+                    <div class="card-body ">
+                        <h5 class="card-title text-center text-md-start text-success">${title}</h5>
                         <p class="card-text">${details.slice(0, 300)} [...]</p>
-                        <div class="m-1 border p-2 align-items-center row">
+                        <div class="m-1  p-2 align-items-center row">
                             <div class="col-9 col-md-6 d-flex align-items-center">
                                 <img src="${author.img}" class="img-fluid news-author-img rounded-circle"/>
-                                <p class="ms-3">Name: ${author.name ? news.author.name : 'Name not found'} <br />
+                                <p class="ms-3"><b>Name:</b> ${author.name ? news.author.name : 'Name not found'} <br />
                                     
                                 </p>
                             </div>
@@ -91,7 +91,7 @@ const displayNews = async (newsesData) => {
                                 <span><i class="fa-regular fa-eye"></i> ${total_view ? total_view : '00'}</span>
                             </div>
                             <div class="col-12 col-md-3">
-                                <button type="button" class="btn btn-outline-dark w-100" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick='newsDetailsLoad("${_id}")'>Details<i class="fa-solid fa-play ms-1"></i></button>
+                                <button type="button" class="btn btn-outline-success w-100" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick='newsDetailsLoad("${_id}")'>Details <i class="fa-solid fa-arrow-right"></i></button>
                             </div>
                         </div>
                     </div>
