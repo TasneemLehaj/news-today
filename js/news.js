@@ -43,7 +43,7 @@ const loadNews = async (category_id) => {
         newsFoundText.innerHTML = `<h5 id="news-found" class="text-center border border-success text-success p-1 mb-2">News Found: ${newsesData.length}</h5>`;
         newsFound.appendChild(newsFoundText);
     } else {
-        newsFoundText.innerHTML = `<h5 id="news-found" class="text-center border border-dark p-1">Sorry No News Found</h5>`;
+        newsFoundText.innerHTML = `<h5 id="news-found" class="text-center border border-success text-success p-1">Sorry No News Found</h5>`;
         newsFound.appendChild(newsFoundText);
     }
     return displayNews(newsesData);
