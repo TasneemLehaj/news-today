@@ -109,7 +109,7 @@ const displayNews = async (newsesData) => {
 
 // Spinner 
 const toggleSpinner = isLoading => {
-    const spinner = document.getElementById('spinner')
+    const spinner = document.getElementById('spinner');
     if (isLoading) {
         spinner.classList.remove('d-none');
     } else {
@@ -117,11 +117,11 @@ const toggleSpinner = isLoading => {
     }
 }
 
-// load newsDetails api
+// fetching newsDetails api
 const newsDetailsLoad = async (id) => {
     const response = await fetch(`https://openapi.programming-hero.com/api/news/${id}`)
     const newsData = await response.json();
-    displayNewsDetails(newsData.data)
+    displayNewsDetails(newsData.data);
 }
 
 // using a modal to display news details
@@ -145,4 +145,4 @@ const displayNewsDetails = (newsData) => {
     modalContainer.appendChild(modalDiv)
 }
 
-categoryDisplay()
+categoryDisplay();
